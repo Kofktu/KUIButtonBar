@@ -8,16 +8,14 @@
 
 import UIKit
 
-@objc
-public protocol KUIButtonBarDelegate: class {
+@objc public protocol KUIButtonBarDelegate: class {
     
     // Required
-    func render(buttonBar: KUIButtonBar, button: UIButton, index: Int)
+    func render(_ buttonBar: KUIButtonBar, button: UIButton, index: Int)
     
     // Optional
-    optional func click(buttonBar: KUIButtonBar, button: UIButton, index: Int)
-    optional func selected(buttonBar: KUIButtonBar, button: UIButton, index: Int)
-    
+    @objc optional func click(_ buttonBar: KUIButtonBar, button: UIButton, index: Int)
+    @objc optional func selected(_ buttonBar: KUIButtonBar, button: UIButton, index: Int)
 }
 
 public struct KUIButtonBarConfig {
@@ -62,29 +60,29 @@ public struct KUIButtonBarConfig {
     }
 }
 
-public class KUIButtonBar: UIView {
+open class KUIButtonBar: UIView {
     
-    public weak var delegate: KUIButtonBarDelegate?
-    public var config: KUIButtonBarConfig!
+    open weak var delegate: KUIButtonBarDelegate?
+    open var config: KUIButtonBarConfig!
     
-    public var buttonType: UIButtonType = .Custom
-    public var padding: UIEdgeInsets = UIEdgeInsetsZero
+    open var buttonType: UIButtonType = .custom
+    open var padding: UIEdgeInsets = UIEdgeInsets.zero
     
-    public private(set) var buttons = [UIButton]()
-    public private(set) var selectedIndex: Int = -1
-    public var selectedButton: UIButton? {
+    open fileprivate(set) var buttons = [UIButton]()
+    open fileprivate(set) var selectedIndex: Int = -1
+    open var selectedButton: UIButton? {
         guard selectedIndex >= 0 else { return nil }
         return  buttons[selectedIndex]
     }
     
-    private var calculatedButtonWidth: CGFloat {
-        var width = CGRectGetWidth(frame) - (padding.left + padding.right)
+    fileprivate var calculatedButtonWidth: CGFloat {
+        var width = frame.width - (padding.left + padding.right)
         width -= config.horizontalGap * CGFloat(max(0, config.columnCount - 1))
         width /= CGFloat(config.columnCount)
         return width
     }
-    private var calculatedButtonHeight: CGFloat {
-        var height = CGRectGetHeight(frame) - (padding.top + padding.bottom)
+    fileprivate var calculatedButtonHeight: CGFloat {
+        var height = frame.height - (padding.top + padding.bottom)
         height -= config.verticalGap * CGFloat(max(0, config.rowCount - 1))
         height /= CGFloat(config.rowCount)
         return height
@@ -94,15 +92,15 @@ public class KUIButtonBar: UIView {
         removeButtons()
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         
         guard buttons.count > 0 else { return }
         
-        let buttonSize = CGSizeMake(calculatedButtonWidth, calculatedButtonHeight)
+        let buttonSize = CGSize(width: calculatedButtonWidth, height: calculatedButtonHeight)
         
-        for (index, button) in buttons.enumerate() {
-            button.frame = CGRectMake(xOffsetForIndex(index), yOffsetForIndex(index), buttonSize.width, buttonSize.height)
+        for (index, button) in buttons.enumerated() {
+            button.frame = CGRect(origin: CGPoint(x: xOffsetForIndex(index), y: yOffsetForIndex(index)), size: CGSize(width: buttonSize.width, height: buttonSize.height))
         }
     }
     
@@ -123,8 +121,8 @@ public class KUIButtonBar: UIView {
         selectedIndex = -1
     }
     
-    internal func onButtonPressed(sender: UIButton) {
-        let index = buttons.indexOf(sender) ?? -1
+    internal func onButtonPressed(_ sender: UIButton) {
+        let index = buttons.index(of: sender) ?? -1
         
         delegate?.click?(self, button: sender, index: index)
         
@@ -133,8 +131,8 @@ public class KUIButtonBar: UIView {
         if sender != selectedButton {
             clearForSelectedButton()
             
-            sender.userInteractionEnabled = false
-            sender.selected = true
+            sender.isUserInteractionEnabled = false
+            sender.isSelected = true
             selectedIndex = index
             
             delegate?.selected?(self, button: sender, index: index)
@@ -144,14 +142,14 @@ public class KUIButtonBar: UIView {
     private func createButtons() {
         guard buttons.count == 0 else { return }
         
-        let buttonSize = CGSizeMake(calculatedButtonWidth, calculatedButtonHeight)
+        let buttonSize = CGSize(width: calculatedButtonWidth, height: calculatedButtonHeight)
         
         for index in 0 ..< config.numberOfButtons {
             let button = UIButton(type: buttonType)
-            button.frame = CGRectMake(xOffsetForIndex(index), yOffsetForIndex(index), buttonSize.width, buttonSize.height)
-            button.selected = (index == selectedIndex)
-            button.userInteractionEnabled = true
-            button.addTarget(self, action: #selector(onButtonPressed(_:)), forControlEvents: .TouchUpInside)
+            button.frame = CGRect(origin: CGPoint(x: xOffsetForIndex(index), y: yOffsetForIndex(index)), size: buttonSize)
+            button.isSelected = (index == selectedIndex)
+            button.isUserInteractionEnabled = true
+            button.addTarget(self, action: #selector(onButtonPressed(_:)), for: .touchUpInside)
             addSubview(button)
             buttons.append(button)
             delegate?.render(self, button: button, index: index)
@@ -170,16 +168,16 @@ public class KUIButtonBar: UIView {
     }
     
     private func clearForSelectedButton() {
-        selectedButton?.selected = false
-        selectedButton?.userInteractionEnabled = true
+        selectedButton?.isSelected = false
+        selectedButton?.isUserInteractionEnabled = true
     }
     
-    private func xOffsetForIndex(index: Int) -> CGFloat {
+    private func xOffsetForIndex(_ index: Int) -> CGFloat {
         let columnIndex = CGFloat(index % config.columnCount)
         return padding.left + (columnIndex * calculatedButtonWidth) + (columnIndex * config.horizontalGap)
     }
     
-    private func yOffsetForIndex(index: Int) -> CGFloat {
+    private func yOffsetForIndex(_ index: Int) -> CGFloat {
         let rowIndex = floor(CGFloat(index / config.columnCount))
         return padding.top + (rowIndex * calculatedButtonHeight) + (rowIndex * config.verticalGap)
     }
