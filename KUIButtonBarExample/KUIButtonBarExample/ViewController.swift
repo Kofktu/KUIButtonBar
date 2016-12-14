@@ -35,7 +35,7 @@ class ViewController: UIViewController, KUIButtonBarDelegate {
         horizontalButtonBar.config = KUIButtonBarConfig(toggle: false, numberOfButtons: 3, horizontalGap: 3.0, verticalGap: 0.0)
         horizontalButtonBar.refresh()
         
-        horizontalButtonBar.layer.borderColor = UIColor.blueColor().CGColor
+        horizontalButtonBar.layer.borderColor = UIColor.blue.cgColor
         horizontalButtonBar.layer.borderWidth = 1.0
     }
     
@@ -49,7 +49,7 @@ class ViewController: UIViewController, KUIButtonBarDelegate {
         
         verticalButtonBar.refresh()
         
-        verticalButtonBar.layer.borderColor = UIColor.blueColor().CGColor
+        verticalButtonBar.layer.borderColor = UIColor.blue.cgColor
         verticalButtonBar.layer.borderWidth = 1.0
     }
     
@@ -58,28 +58,28 @@ class ViewController: UIViewController, KUIButtonBarDelegate {
         mixButtonBar.config = KUIButtonBarConfig(toggle: true, numberOfButtons: 6, rowCount: 2, columnCount: 3, horizontalGap: 3.0, verticalGap: 3.0, defaultSelectedIndex: 0)
         mixButtonBar.refresh()
         
-        mixButtonBar.layer.borderColor = UIColor.blueColor().CGColor
+        mixButtonBar.layer.borderColor = UIColor.blue.cgColor
         mixButtonBar.layer.borderWidth = 1.0
     }
 
     // Required
-    func render(buttonBar: KUIButtonBar, button: UIButton, index: Int) {
+    func render(_ buttonBar: KUIButtonBar, button: UIButton, index: Int) {
         print("render::index : \(index)")
         
         let titles = ["A", "B", "C", "D", "E", "F", "G"]
-        button.setTitle(titles[index], forState: .Normal)
-        button.setTitleColor(UIColor.blackColor(), forState: .Normal)
-        button.setTitleColor(UIColor.magentaColor(), forState: .Selected)
+        button.setTitle(titles[index], for: [])
+        button.setTitleColor(UIColor.black, for: [])
+        button.setTitleColor(UIColor.magenta , for: .selected)
         
-        button.layer.borderColor = UIColor.redColor().CGColor
+        button.layer.borderColor = UIColor.red.cgColor
         button.layer.borderWidth = 1.0
     }
     
-    func click(buttonBar: KUIButtonBar, button: UIButton, index: Int) {
+    func click(_ buttonBar: KUIButtonBar, button: UIButton, index: Int) {
         print("click::index : \(index)")
     }
     
-    func selected(buttonBar: KUIButtonBar, button: UIButton, index: Int) {
+    func selected(_ buttonBar: KUIButtonBar, button: UIButton, index: Int) {
         print("selected::index : \(index)")
     }
 }
