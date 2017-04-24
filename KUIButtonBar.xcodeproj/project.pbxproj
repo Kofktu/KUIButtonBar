@@ -7,11 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C34CAD641EAD9A1500AD130C /* KUIButtonBarSepratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34CAD631EAD9A1500AD130C /* KUIButtonBarSepratorView.swift */; };
+		C34CAD6C1EADE02200AD130C /* KUIButtonBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34CAD6B1EADE02200AD130C /* KUIButtonBarTests.swift */; };
+		C34CAD6E1EADE02200AD130C /* KUIButtonBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C861941D4B3AE500576958 /* KUIButtonBar.framework */; };
 		C3C861981D4B3AE500576958 /* KUIButtonBar.h in Headers */ = {isa = PBXBuildFile; fileRef = C3C861971D4B3AE500576958 /* KUIButtonBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C3C861A11D4B3B1900576958 /* KUIButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C861A01D4B3B1900576958 /* KUIButtonBar.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C34CAD6F1EADE02200AD130C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3C8618B1D4B3AE500576958 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3C861931D4B3AE500576958;
+			remoteInfo = KUIButtonBar;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		C34CAD631EAD9A1500AD130C /* KUIButtonBarSepratorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIButtonBarSepratorView.swift; sourceTree = "<group>"; };
+		C34CAD691EADE02200AD130C /* KUIButtonBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KUIButtonBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C34CAD6B1EADE02200AD130C /* KUIButtonBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KUIButtonBarTests.swift; sourceTree = "<group>"; };
+		C34CAD6D1EADE02200AD130C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3C861941D4B3AE500576958 /* KUIButtonBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KUIButtonBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C861971D4B3AE500576958 /* KUIButtonBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KUIButtonBar.h; sourceTree = "<group>"; };
 		C3C861991D4B3AE500576958 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -19,6 +36,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C34CAD661EADE02200AD130C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C34CAD6E1EADE02200AD130C /* KUIButtonBar.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3C861901D4B3AE500576958 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -29,10 +54,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C34CAD6A1EADE02200AD130C /* KUIButtonBarTests */ = {
+			isa = PBXGroup;
+			children = (
+				C34CAD6B1EADE02200AD130C /* KUIButtonBarTests.swift */,
+				C34CAD6D1EADE02200AD130C /* Info.plist */,
+			);
+			path = KUIButtonBarTests;
+			sourceTree = "<group>";
+		};
 		C3C8618A1D4B3AE500576958 = {
 			isa = PBXGroup;
 			children = (
 				C3C861961D4B3AE500576958 /* KUIButtonBar */,
+				C34CAD6A1EADE02200AD130C /* KUIButtonBarTests */,
 				C3C861951D4B3AE500576958 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				C3C861941D4B3AE500576958 /* KUIButtonBar.framework */,
+				C34CAD691EADE02200AD130C /* KUIButtonBarTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				C3C861A01D4B3B1900576958 /* KUIButtonBar.swift */,
+				C34CAD631EAD9A1500AD130C /* KUIButtonBarSepratorView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -77,6 +114,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		C34CAD681EADE02200AD130C /* KUIButtonBarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C34CAD711EADE02200AD130C /* Build configuration list for PBXNativeTarget "KUIButtonBarTests" */;
+			buildPhases = (
+				C34CAD651EADE02200AD130C /* Sources */,
+				C34CAD661EADE02200AD130C /* Frameworks */,
+				C34CAD671EADE02200AD130C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C34CAD701EADE02200AD130C /* PBXTargetDependency */,
+			);
+			name = KUIButtonBarTests;
+			productName = KUIButtonBarTests;
+			productReference = C34CAD691EADE02200AD130C /* KUIButtonBarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C3C861931D4B3AE500576958 /* KUIButtonBar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3C8619C1D4B3AE500576958 /* Build configuration list for PBXNativeTarget "KUIButtonBar" */;
@@ -101,9 +156,14 @@
 		C3C8618B1D4B3AE500576958 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Kofktu;
 				TargetAttributes = {
+					C34CAD681EADE02200AD130C = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
 					C3C861931D4B3AE500576958 = {
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 0800;
@@ -123,11 +183,19 @@
 			projectRoot = "";
 			targets = (
 				C3C861931D4B3AE500576958 /* KUIButtonBar */,
+				C34CAD681EADE02200AD130C /* KUIButtonBarTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C34CAD671EADE02200AD130C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3C861921D4B3AE500576958 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -138,17 +206,63 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C34CAD651EADE02200AD130C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C34CAD6C1EADE02200AD130C /* KUIButtonBarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C3C8618F1D4B3AE500576958 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C34CAD641EAD9A1500AD130C /* KUIButtonBarSepratorView.swift in Sources */,
 				C3C861A11D4B3B1900576958 /* KUIButtonBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C34CAD701EADE02200AD130C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3C861931D4B3AE500576958 /* KUIButtonBar */;
+			targetProxy = C34CAD6F1EADE02200AD130C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		C34CAD721EADE02200AD130C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				INFOPLIST_FILE = KUIButtonBarTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kakao.KakaoMusic.KUIButtonBarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C34CAD731EADE02200AD130C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				INFOPLIST_FILE = KUIButtonBarTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kakao.KakaoMusic.KUIButtonBarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		C3C8619A1D4B3AE500576958 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -289,6 +403,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C34CAD711EADE02200AD130C /* Build configuration list for PBXNativeTarget "KUIButtonBarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C34CAD721EADE02200AD130C /* Debug */,
+				C34CAD731EADE02200AD130C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		C3C8618E1D4B3AE500576958 /* Build configuration list for PBXProject "KUIButtonBar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -14,6 +14,7 @@ class ViewController: UIViewController, KUIButtonBarDelegate {
     @IBOutlet weak var horizontalButtonBar: KUIButtonBar!
     @IBOutlet weak var verticalButtonBar: KUIButtonBar!
     @IBOutlet weak var mixButtonBar: KUIButtonBar!
+    @IBOutlet weak var sepratorButtonBar: KUIButtonBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class ViewController: UIViewController, KUIButtonBarDelegate {
         setupHorizontal()
         setupVertical()
         setupMix()
+        setupSeprator()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,9 +36,6 @@ class ViewController: UIViewController, KUIButtonBarDelegate {
         horizontalButtonBar.padding = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0)
         horizontalButtonBar.config = KUIButtonBarConfig(toggle: false, numberOfButtons: 3, horizontalGap: 3.0, verticalGap: 0.0)
         horizontalButtonBar.refresh()
-        
-        horizontalButtonBar.layer.borderColor = UIColor.blue.cgColor
-        horizontalButtonBar.layer.borderWidth = 1.0
     }
     
     private func setupVertical() {
@@ -44,22 +43,23 @@ class ViewController: UIViewController, KUIButtonBarDelegate {
         verticalButtonBar.config = KUIButtonBarConfig(numberOfButtons: 3, rowCount: 3, columnCount: 1)
         
 //        modify config property
-//        verticalButtonBar.config.numberOfButtons = 4
-//        verticalButtonBar.config.rowCount = 4
-        
+        verticalButtonBar.config.set(rowCount: 4, columnCount: 1)
         verticalButtonBar.refresh()
-        
-        verticalButtonBar.layer.borderColor = UIColor.blue.cgColor
-        verticalButtonBar.layer.borderWidth = 1.0
     }
     
     private func setupMix() {
         mixButtonBar.delegate = self
         mixButtonBar.config = KUIButtonBarConfig(toggle: true, numberOfButtons: 6, rowCount: 2, columnCount: 3, horizontalGap: 3.0, verticalGap: 3.0, defaultSelectedIndex: 0)
         mixButtonBar.refresh()
-        
-        mixButtonBar.layer.borderColor = UIColor.blue.cgColor
-        mixButtonBar.layer.borderWidth = 1.0
+    }
+    
+    private func setupSeprator() {
+        sepratorButtonBar.delegate = self
+        sepratorButtonBar.config = KUIButtonBarConfig(toggle: false, numberOfButtons: 3)
+        sepratorButtonBar.style = KUIButtonBarStyle(
+            type: [.top, .bottom, .seprator],
+            color: .red)
+        sepratorButtonBar.refresh()
     }
 
     // Required
@@ -71,8 +71,10 @@ class ViewController: UIViewController, KUIButtonBarDelegate {
         button.setTitleColor(UIColor.black, for: [])
         button.setTitleColor(UIColor.magenta , for: .selected)
         
-        button.layer.borderColor = UIColor.red.cgColor
-        button.layer.borderWidth = 1.0
+//        if !buttonBar.isEnabledSepratorLine {
+//            button.layer.borderColor = UIColor.red.cgColor
+//            button.layer.borderWidth = 1.0
+//        }
     }
     
     func click(_ buttonBar: KUIButtonBar, button: UIButton, index: Int) {
