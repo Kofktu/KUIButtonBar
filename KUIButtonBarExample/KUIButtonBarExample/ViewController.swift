@@ -43,9 +43,7 @@ class ViewController: UIViewController, KUIButtonBarDelegate {
         verticalButtonBar.config = KUIButtonBarConfig(numberOfButtons: 3, rowCount: 3, columnCount: 1)
         
 //        modify config property
-        verticalButtonBar.config.numberOfButtons = 4
-//        verticalButtonBar.config.rowCount = 4
-        
+        verticalButtonBar.config.set(rowCount: 4, columnCount: 1)
         verticalButtonBar.refresh()
     }
     
