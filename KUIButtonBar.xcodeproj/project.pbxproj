@@ -410,6 +410,7 @@
 				C34CAD731EADE02200AD130C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C3C8618E1D4B3AE500576958 /* Build configuration list for PBXProject "KUIButtonBar" */ = {
 			isa = XCConfigurationList;
