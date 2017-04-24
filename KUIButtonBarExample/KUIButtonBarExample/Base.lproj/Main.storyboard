@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,11 +42,21 @@
                                     <constraint firstAttribute="height" constant="100" id="96g-zc-zWd"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufd-hX-2TW" customClass="KUIButtonBar" customModule="KUIButtonBar">
+                                <rect key="frame" x="0.0" y="430" width="375" height="100"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="4q1-kk-SaB"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fVY-ES-r5A" firstAttribute="width" secondItem="gWG-Bv-Qtd" secondAttribute="width" id="0B8-XE-m2f"/>
+                            <constraint firstAttribute="trailing" secondItem="ufd-hX-2TW" secondAttribute="trailing" id="2C3-N2-Sa4"/>
+                            <constraint firstItem="ufd-hX-2TW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2KO-Uu-HvD"/>
                             <constraint firstItem="fVY-ES-r5A" firstAttribute="centerX" secondItem="gWG-Bv-Qtd" secondAttribute="centerX" id="2Zu-Jn-eHK"/>
+                            <constraint firstItem="ufd-hX-2TW" firstAttribute="top" secondItem="Vge-Ef-ZjP" secondAttribute="bottom" constant="10" id="H3s-aT-gtH"/>
                             <constraint firstItem="Vge-Ef-ZjP" firstAttribute="top" secondItem="fVY-ES-r5A" secondAttribute="bottom" constant="50" id="Ie6-ig-bK6"/>
                             <constraint firstAttribute="trailing" secondItem="gWG-Bv-Qtd" secondAttribute="trailing" id="UMw-Xh-v6V"/>
                             <constraint firstItem="gWG-Bv-Qtd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ZQ0-r1-42I"/>
@@ -59,6 +69,7 @@
                     <connections>
                         <outlet property="horizontalButtonBar" destination="gWG-Bv-Qtd" id="Wug-Vr-23w"/>
                         <outlet property="mixButtonBar" destination="Vge-Ef-ZjP" id="isF-n4-i7c"/>
+                        <outlet property="sepratorButtonBar" destination="ufd-hX-2TW" id="Bin-8a-XMn"/>
                         <outlet property="verticalButtonBar" destination="fVY-ES-r5A" id="Bob-4w-nhz"/>
                     </connections>
                 </viewController>
