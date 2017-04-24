@@ -20,17 +20,9 @@ import UIKit
 
 public struct KUIButtonBarConfig {
     public var toggle: Bool
-    public var numberOfButtons: Int {
-        didSet {
-            if rowCount > 1 {
-                columnCount = numberOfButtons / rowCount
-            } else if columnCount > 1 {
-                rowCount = numberOfButtons / columnCount
-            }
-        }
-    }
     public var rowCount: Int
-    public var columnCount: Int
+    public var columnCount: Int  // numberOfButtons 하기전에 값 설정해놓을것
+    public var numberOfButtons: Int
     public var horizontalGap: CGFloat
     public var verticalGap: CGFloat
     public var defaultSelectedIndex: Int // toggle 값이 true 인 경우에만 KUIButtonBar refresh시 기본값으로 설정됨
@@ -50,6 +42,12 @@ public struct KUIButtonBarConfig {
         self.horizontalGap = horizontalGap
         self.verticalGap = verticalGap
         self.defaultSelectedIndex = defaultSelectedIndex
+    }
+    
+    public mutating func set(rowCount: Int = 1, columnCount: Int) {
+        self.columnCount = columnCount
+        self.rowCount = rowCount
+        numberOfButtons = rowCount * columnCount
     }
 }
 
