@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C34CAD641EAD9A1500AD130C /* KUIButtonBarSepratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34CAD631EAD9A1500AD130C /* KUIButtonBarSepratorView.swift */; };
 		C3C861981D4B3AE500576958 /* KUIButtonBar.h in Headers */ = {isa = PBXBuildFile; fileRef = C3C861971D4B3AE500576958 /* KUIButtonBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C3C861A11D4B3B1900576958 /* KUIButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C861A01D4B3B1900576958 /* KUIButtonBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C34CAD631EAD9A1500AD130C /* KUIButtonBarSepratorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KUIButtonBarSepratorView.swift; sourceTree = "<group>"; };
 		C3C861941D4B3AE500576958 /* KUIButtonBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KUIButtonBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C861971D4B3AE500576958 /* KUIButtonBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KUIButtonBar.h; sourceTree = "<group>"; };
 		C3C861991D4B3AE500576958 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				C3C861A01D4B3B1900576958 /* KUIButtonBar.swift */,
+				C34CAD631EAD9A1500AD130C /* KUIButtonBarSepratorView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C34CAD641EAD9A1500AD130C /* KUIButtonBarSepratorView.swift in Sources */,
 				C3C861A11D4B3B1900576958 /* KUIButtonBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
