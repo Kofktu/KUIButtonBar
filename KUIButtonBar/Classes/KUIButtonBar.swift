@@ -104,8 +104,8 @@ open class KUIButtonBar: UIView {
     open var buttonType: UIButtonType = .custom
     open var padding: UIEdgeInsets = UIEdgeInsets.zero
     
-    open fileprivate(set) var buttons = [UIButton]()
-    open fileprivate(set) var selectedIndex: Int = -1
+    open private(set) var buttons = [UIButton]()
+    open private(set) var selectedIndex: Int = -1
     open var selectedButton: UIButton? {
         guard selectedIndex >= 0 else { return nil }
         return  buttons[selectedIndex]
@@ -117,13 +117,13 @@ open class KUIButtonBar: UIView {
         return view
     }()
     
-    fileprivate var calculatedButtonWidth: CGFloat {
+    private var calculatedButtonWidth: CGFloat {
         var width = frame.width - (padding.left + padding.right)
         width -= config.horizontalGap * CGFloat(max(0, config.columnCount - 1))
         width /= CGFloat(config.columnCount)
         return width
     }
-    fileprivate var calculatedButtonHeight: CGFloat {
+    private var calculatedButtonHeight: CGFloat {
         var height = frame.height - (padding.top + padding.bottom)
         height -= config.verticalGap * CGFloat(max(0, config.rowCount - 1))
         height /= CGFloat(config.rowCount)
@@ -203,7 +203,7 @@ open class KUIButtonBar: UIView {
         selectedIndex = -1
     }
     
-    internal func onButtonPressed(_ sender: UIButton) {
+    @objc internal func onButtonPressed(_ sender: UIButton) {
         let index = buttons.index(of: sender) ?? -1
         
         delegate?.click?(self, button: sender, index: index)
